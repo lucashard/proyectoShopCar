@@ -77,3 +77,12 @@ button, input, select { font: inherit; }
 
 .muted { color: var(--muted); }
 .error { color: #f87171; }
+
+@media print {
+  body { background: #fff !important; color: #111 !important; }
+  app-header, footer, app-cart-drawer, .no-print { display: none !important; }
+  main { padding: 0 !important; }
+  .invoice-page { max-width: none !important; padding: 0 !important; }
+  .invoice-sheet { background: #fff !important; border: 0 !important; color: #111 !important; }
+  .invoice-page, .invoice-page * { color: #111 !important; }
+}

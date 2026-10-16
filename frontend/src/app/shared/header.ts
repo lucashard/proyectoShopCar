@@ -32,6 +32,7 @@ import { MoneyPipe } from './money.pipe';
       <nav class="container">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
         <a routerLink="/tienda" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tienda</a>
+        <a routerLink="/factura" routerLinkActive="active">Facturación</a>
         @for (c of categories.value() ?? []; track c.id) {
           <a routerLink="/tienda" [queryParams]="{ categoria: c.id }">{{ c.name }}</a>
         }
