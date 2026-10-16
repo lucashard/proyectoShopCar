@@ -1,0 +1,9 @@
+:host { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; padding-bottom: 64px; }
+footer { background: #0b0c0f; border-top: 1px solid var(--border); padding: 40px 0 20px; color: var(--muted); font-size: .9rem; }
+.cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+h4 { color: var(--text); text-transform: uppercase; letter-spacing: .06em; font-size: .8rem; margin: 0 0 10px; }
+.logo { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--accent); }
+.logo span { color: var(--text); }
+.copy { text-align: center; margin: 32px 0 0; font-size: .8rem; }
+@media (max-width: 700px) { .cols { grid-template-columns: 1fr; } }

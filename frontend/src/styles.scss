@@ -1,0 +1,79 @@
+:root {
+  --bg: #121318;
+  --surface: #1a1c22;
+  --border: #2a2d35;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --accent: #e10600;
+  --accent-hover: #ff1f1a;
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+button, input, select { font: inherit; }
+
+.container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin: 48px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-title::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+
+.page-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  margin: 32px 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: .85rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .15s, border-color .15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-primary:disabled { background: #3a3d45; color: var(--muted); cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--text); }
+
+.muted { color: var(--muted); }
+.error { color: #f87171; }
