@@ -1,8 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const FRONTEND_DIST = path.join(__dirname, '..', 'frontend', 'dist', 'frontend', 'browser');
 const PORT = process.env.PORT || 3000;
 const PRODUCTS_FILE = new URL('./data/products.json', import.meta.url);
 const ORDERS_FILE = new URL('./data/orders.json', import.meta.url);
@@ -126,6 +130,11 @@ app.get('/api/orders/:id', async (req, res) => {
   const order = orders.find(o => o.id === req.params.id);
   if (!order) return res.status(404).json({ error: 'Pedido no encontrado' });
   res.json(order);
+});
+
+app.use(express.static(FRONTEND_DIST));
+app.get('/{*splat}', (req, res) => {
+  res.sendFile(path.join(FRONTEND_DIST, 'index.html'));
 });
 
 app.use((err, req, res, next) => {
